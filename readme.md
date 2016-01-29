@@ -3,8 +3,10 @@ node --version
 python3 --version
 sqlite3 --version
 
+Install and run:
+pip install -r requirements.txt
 npm install
-npm initdb #initilise sqlite db
-npm js #build javascrip
-npm getdata
-npm serve #start webserver
+python3 createdb.py
+python3 getpop.py
+gulp javascript
+python3 server.py

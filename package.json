@@ -3,13 +3,6 @@
   "version": "0.0.1",
   "description": "Nostalrius Population",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "initdb": "python3 createdb.py",
-    "js": "gulp javascript",
-    "getdata": "python3 getpop.py",
-    "run": "python3 hello.py"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
