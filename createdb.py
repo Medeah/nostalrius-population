@@ -1,4 +1,4 @@
-from hello import app, get_db
+from server import app, get_db
 
 with app.app_context():
     db = get_db()

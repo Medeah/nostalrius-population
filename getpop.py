@@ -1,5 +1,5 @@
 from cfscrape import create_scraper
-from hello import app, get_db
+from server import app, get_db
 from bs4 import BeautifulSoup
 from time import time
 
