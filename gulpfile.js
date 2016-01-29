@@ -1,27 +1,18 @@
 'use strict';
 
-var browserify = require('browserify');
 var gulp = require('gulp');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
 
-gulp.task('javascript', function () {
-  // set up the browserify instance on a task basis
-  var b = browserify({
-    entries: './entry.js',
-    debug: true
-  });
-
-  return b.bundle()
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
-        .pipe(uglify())
-        .on('error', gutil.log)
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/js/'));
+gulp.task('javascript', function() {
+  // Minify and copy all JavaScript (except vendor scripts)
+  // with sourcemaps all the way down
+  return gulp.src(['node_modules/jquery-flot/jquery.flot.js',
+                    'node_modules/jquery-flot/jquery.flot.time.js',
+                    'node_modules/jquery-flot/jquery.flot.selection.js',
+                    'node_modules/timezone-js/src/date.js',
+                    'app.js'])
+    .pipe(uglify())
+    .pipe(concat('all.min.js'))
+    .pipe(gulp.dest('static'));
 });
