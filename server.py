@@ -29,8 +29,8 @@ def root():
 @app.route("/data.json")
 def data():
     cur = get_db().cursor()
-    cur.execute('SELECT time, pvp FROM series')
+    cur.execute('SELECT time, pvp, pve FROM series')
     return jsonify(series = cur.fetchall())
 
 if __name__ == "__main__":
-    app.run(debug = true)
+    app.run(debug = True)
