@@ -9,7 +9,9 @@
 
 <body>
   <h1>Nostalrius Population</h1> Players online on Nostalrius. Data is updated every 15 min from the main website.
-  <div id="chart_div" style="width: 900px; height: 500px"></div>
+  <div id="chart_div" style="width: 900px; height: 500px">Loading data...
+  <image src='static/ajax-loader.gif' />
+  </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {
@@ -45,7 +47,8 @@
             },
             explorer: {
               actions: ['dragToZoom', 'rightClickToReset'],
-              axis: 'horizontal'
+              axis: 'horizontal',
+              maxZoomIn: .01
             }
           };
 
