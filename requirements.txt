@@ -1,4 +1,5 @@
 beautifulsoup4 ~= 4.4.1
 cfscrape ~= 1.4.3
 Flask ~= 0.10.1
+Flask-Cache ~= 0.13.1
 gunicorn ~= 19.4.5

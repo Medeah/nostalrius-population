@@ -1,7 +1,9 @@
 import sqlite3
 from flask import Flask, render_template, g, jsonify
+from flask.ext.cache import Cache
 
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 DATABASE = 'database.db'
 
 
@@ -27,10 +29,12 @@ def root():
 
 
 @app.route("/data.json")
+@cache.cached(timeout=300)
 def data():
     cur = get_db().cursor()
     cur.execute('SELECT time, pvp, pve FROM series')
     return jsonify(series = cur.fetchall())
+
 
 if __name__ == "__main__":
     app.run(debug = True)
