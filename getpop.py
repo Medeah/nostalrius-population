@@ -1,7 +1,6 @@
 from cfscrape import create_scraper
 from server import app, get_db
 from bs4 import BeautifulSoup
-from time import time
 
 scraper = create_scraper() # returns a requests.Session object
 r = scraper.get("https://en.nostalrius.org/")
